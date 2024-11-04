@@ -4,11 +4,12 @@ public class StatsLibraryTester{
 
     public static void main(String[] args){
 
+        ArrayList<Integer> listOfNumbers = new ArrayList<>();
         StatsLibrary tester = new StatsLibrary();
 
-        ArrayList<Integer> listOfNumbers = new ArrayList<>();
+        
 
-        for( int i = 1; i < 174; i++){
+        for(int i = 1; i < 174; i++){
         listOfNumbers.add(i);
         }
         listOfNumbers.add(50);
@@ -20,6 +21,8 @@ public class StatsLibraryTester{
         System.out.println(tester.computeMode(listOfNumbers));
         System.out.println(tester.computeStandardDeviation(listOfNumbers));
         System.out.println(tester.computeVariance(listOfNumbers));
+        System.out.println(tester.computeFactorial(50));
+        System.out.println(tester.computeBayesTheorem(1, 2000, .4));
     }
 
 }

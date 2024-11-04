@@ -2,8 +2,12 @@ package cardgameohgod;
 import java.util.ArrayList;
 import java.util.*;
 public class CardGame {
-    private ArrayList<Card> deck; //
-    private ArrayList<Card> hand;
+
+    /*
+     * Initializers for the Array Lists for all of the different attributes.
+     */
+    private ArrayList<Card> deck; 
+    private ArrayList<Card> hand; 
     private ArrayList<Card> prize;
     private ArrayList<Card> active;
     private ArrayList<Card> bench;

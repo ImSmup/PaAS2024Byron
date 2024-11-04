@@ -26,29 +26,29 @@ public class StatsLibrary{
      * Compute the Mode of the listOfNumbers.
      */
     public double computeMode(ArrayList<Integer> listOfNumbers){
-        int count = 0;
         int hold = listOfNumbers.indexOf(0);
-        int mode = 0;
-        int modeCount = 1;
+        int mode = listOfNumbers.get(0);
+        int modeCount = 0;
         for (int i = 0; i < listOfNumbers.size(); i++){          
-            
-            if(listOfNumbers.indexOf(i) == hold){
-                count++;
-            } else{
+            int curNum = listOfNumbers.get(i);
+            int count = 0;
 
-                if (count > modeCount){
-                    modeCount = count;
-                    mode = hold;
+            for (int j = 0; j < listOfNumbers.size(); j++){
+
+                if (listOfNumbers.get(j) == curNum){
+                    count++;
                 }
-
-            
-            hold = listOfNumbers.indexOf(i);
 
             }
 
-            count = 0;
+            if (count > modeCount){
+                modeCount = count;
+                mode = curNum;
+            }
+
+            }
             
-        }
+        
         
         return (double) mode;
     }
@@ -69,16 +69,16 @@ public class StatsLibrary{
      */
     public double computeVariance(ArrayList<Integer> listOfNumbers){
 
+        double mean = computeMean(listOfNumbers);
         double temp = 0;
-        double dividend = 1/(listOfNumbers.size() - 1);
+        double dividend = 1.0/(listOfNumbers.size() - 1);
 
         for (int i = 0; i < listOfNumbers.size(); i++){
-            temp += listOfNumbers.get(i) - computeMean(listOfNumbers);
+            double hold = listOfNumbers.get(i) - mean;
+            temp += hold * hold;
         }
 
-        double fin = dividend*temp;
-
-        return (double) fin;
+        return dividend * temp;
     }
 
 
@@ -101,7 +101,56 @@ public class StatsLibrary{
      }
 
 
+     /*
+      * Compute the Factorial of a list of numbers.
+      */
+     public double computeFactorial(int input){
+        double fin = 1;
+        
 
+        for (int i = 2; i <= input; i++){
+            fin *= i;
+        }
+        
+        return fin;
+     }
+
+     /*
+      * Compute the Intersection in a given String.
+      */
+     public String computeIntersection(String input){
+
+
+        return "";
+     }
+
+     /*
+      * COmpute the Union of a given String.
+      */
+     public String computeUnion(String input){
+
+        return "";
+     }
+
+     /*
+      * Compute the Compliment of a given String.
+      */
+     public String computeCompliment(String input){
+
+        return "";
+     }
+
+     /*
+     * Compute Bayes Theorem with the given input. 
+     * Probability must be the positive probability.
+     */
+    public double computeBayesTheorem(double topInput, double bottomInput, double prob){
+        double topHold = prob * (topInput / bottomInput);
+        double fin = topHold / (1 - prob);
+        return fin;
+    }
+
+    //I still need to also add Binomial & Geometric Distirbution.
 
 
 }
