@@ -99,6 +99,10 @@ public class StatsLibrary{
      public double computeBinomDistribution(ArrayList<Integer> listOfNumbers){
         return 0;
      }
+     
+     public double computeGeoDistribution(int numberOfTrials, double probability, int size){
+        return 0;
+     }
 
 
      /*
@@ -149,6 +153,8 @@ public class StatsLibrary{
         double fin = topHold / (1 - prob);
         return fin;
     }
+
+    
 
     //I still need to also add Binomial & Geometric Distirbution.
 

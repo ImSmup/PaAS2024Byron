@@ -12,17 +12,17 @@ public class StatsLibraryTester{
         for(int i = 1; i < 174; i++){
         listOfNumbers.add(i);
         }
-        listOfNumbers.add(50);
+        listOfNumbers.add(50); //One extra to test Mode.
         
         
 
-        System.out.println(tester.computeMean(listOfNumbers));
-        System.out.println(tester.computeMedian(listOfNumbers));
-        System.out.println(tester.computeMode(listOfNumbers));
-        System.out.println(tester.computeStandardDeviation(listOfNumbers));
-        System.out.println(tester.computeVariance(listOfNumbers));
-        System.out.println(tester.computeFactorial(50));
-        System.out.println(tester.computeBayesTheorem(1, 2000, .4));
+        System.out.println("Mean: " + tester.computeMean(listOfNumbers));
+        System.out.println("Median: " + tester.computeMedian(listOfNumbers));
+        System.out.println("Mode: " + tester.computeMode(listOfNumbers));
+        System.out.println("Standard Deviation: " + tester.computeStandardDeviation(listOfNumbers));
+        System.out.println("Variance: " + tester.computeVariance(listOfNumbers));
+        System.out.println("Factorial: " + tester.computeFactorial(50));
+        System.out.println("Computing Bayes Theorem with 1/2000, .4 Probability: " + tester.computeBayesTheorem(1, 2000, .4));
     }
 
 }
