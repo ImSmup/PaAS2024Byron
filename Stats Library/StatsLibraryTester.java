@@ -11,6 +11,7 @@ public class StatsLibraryTester{
         for( int i = 1; i < 174; i++){
         listOfNumbers.add(i);
         }
+        listOfNumbers.add(50);
         
         
 
@@ -18,6 +19,7 @@ public class StatsLibraryTester{
         System.out.println(tester.computeMedian(listOfNumbers));
         System.out.println(tester.computeMode(listOfNumbers));
         System.out.println(tester.computeStandardDeviation(listOfNumbers));
+        System.out.println(tester.computeVariance(listOfNumbers));
     }
 
 }

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.*;
 
 public class StatsLibrary{
 
@@ -42,11 +41,12 @@ public class StatsLibrary{
                     mode = hold;
                 }
 
-            count = 0;
+            
             hold = listOfNumbers.indexOf(i);
 
             }
 
+            count = 0;
             
         }
         
@@ -57,18 +57,51 @@ public class StatsLibrary{
      * Compute the Standard Deviation of the ListOfNumbers.
      */
     public double computeStandardDeviation(ArrayList<Integer> listOfNumbers){
-        double temp = 0;
-        double total = 0;
         double fin = 0;
-        for (int i = 0; i < listOfNumbers.size(); i++){
-            temp += listOfNumbers.get(i) - computeMean(listOfNumbers);
-            total += temp;
-            
-        }
-        System.out.println("" + temp + " " + total);
-        fin = Math.sqrt(temp/listOfNumbers.size());
-
-        return fin;
+        fin = Math.sqrt(computeVariance(listOfNumbers));
+        return (double)fin;
 
     }
+
+
+    /*
+     * Compute the Variance of the ListOfNUmbers
+     */
+    public double computeVariance(ArrayList<Integer> listOfNumbers){
+
+        double temp = 0;
+        double dividend = 1/(listOfNumbers.size() - 1);
+
+        for (int i = 0; i < listOfNumbers.size(); i++){
+            temp += listOfNumbers.get(i) - computeMean(listOfNumbers);
+        }
+
+        double fin = dividend*temp;
+
+        return (double) fin;
+    }
+
+
+    /*
+     * Compute the Contitional Probability of a List of Numbers.
+     */
+    public double compute(ArrayList<Integer> listOfNumbers){
+
+        return 0;
+
+    }
+
+
+    /*
+     * Compute the Binomial Distribution of a list of numbers.
+     */
+
+     public double computeBinomDistribution(ArrayList<Integer> listOfNumbers){
+        return 0;
+     }
+
+
+
+
+
 }
