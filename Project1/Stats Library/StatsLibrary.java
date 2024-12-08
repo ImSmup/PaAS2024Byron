@@ -158,9 +158,5 @@ public class StatsLibrary{
 
     //I still need to also add Binomial & Geometric Distirbution.
 
-    public double compute(){
-        return 0;
-    }
-
 
 }
