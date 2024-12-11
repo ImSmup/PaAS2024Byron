@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class Plotter extends JPanel {
 
@@ -27,6 +28,7 @@ public class Plotter extends JPanel {
          */
         plot.setColor(Color.green); //Setting the Graph Points to be Green.
 
+        Random ran = new Random();
 
         for (int x = -350; x <= 350; x++) {
             int scale = 1; //Scaling factor
@@ -39,8 +41,24 @@ public class Plotter extends JPanel {
              * Check and Plot the Points.
              */
             if (xScreen >= 50 && xScreen < width - 50 && yScreen >= 50 && yScreen < height - 50) { //Make sure the Points are only drawn and plotted in the visible bounds of the area.
-                plot.fillOval(xScreen-3, yScreen-3, 6, 6); //Put the Points on Screen
+                plot.fillOval(xScreen - 3, yScreen - 3, 6, 6); //Put the Points on the Graph, both the Equation and Salt Points.
             }
+
+        }
+
+        /* 
+         * Fill in the Random Salt Points and Change the Color to Pink instead of Green.
+         */
+
+         plot.setColor(Color.pink); //Change the color for the Salted Points
+
+        for (int i = 0; i < 50; i++){ //Repeat 50 times
+
+            int ranX = ran.nextInt(width - 125) + 50; //Pick a Random Width for the Point.
+            int ranY = ran.nextInt(height - 125) + 50; //Pick a Random Height for the Point.
+
+            plot.fillOval(ranX - 3, ranY - 3, 6, 6); //FillOval Method to add the points.
+
         }
     }
 }

@@ -10,7 +10,7 @@ public class PlotterTester {
         /*
          * Create the Frame using JFrame.
          */
-        JFrame frame = new JFrame("Plot y = x*x*x"); //Name the Frame
+        JFrame frame = new JFrame("Plot y = x^x^x"); //Name the Frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Exit the Graph when Closed
         frame.setSize(800, 600); //Setting the size of the Graph
 
