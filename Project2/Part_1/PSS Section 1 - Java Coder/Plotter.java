@@ -36,7 +36,6 @@ public class Plotter extends JPanel {
             int y = x * x * x; //The Equation that is to be Graphed
             int yScreen = height / 2 - y * scale; //Convert graph to screen for Y
 
-
             /*
              * Check and Plot the Points.
              */
@@ -52,13 +51,44 @@ public class Plotter extends JPanel {
 
          plot.setColor(Color.pink); //Change the color for the Salted Points
 
-        for (int i = 0; i < 50; i++){ //Repeat 50 times
-
-            int ranX = ran.nextInt(width - 125) + 50; //Pick a Random Width for the Point.
-            int ranY = ran.nextInt(height - 125) + 50; //Pick a Random Height for the Point.
-
-            plot.fillOval(ranX - 3, ranY - 3, 6, 6); //FillOval Method to add the points.
-
+         int numSaltPoints = 50;
+         int[][] saltPoints = new int[numSaltPoints][2]; //Store the Salt Points by their Coordinates
+     
+         /*
+          * Generate random Salt Points
+          */
+         for (int i = 0; i < numSaltPoints; i++) {
+             int ranX = ran.nextInt(width - 125) + 50; //Random X in visible range
+             int ranY = ran.nextInt(height - 125) + 50; //Random Y in visible range
+             saltPoints[i][0] = ranX;
+             saltPoints[i][1] = ranY;
+         }
+     
+         /*
+          * Smooth the Salt Points using the Moving Average from the Smoother
+          */
+         int smoothingWindow = 3; //Number of Nearby Points to Average
+         for (int i = 0; i < numSaltPoints; i++) {
+             int smoothedX = 0;
+             int smoothedY = 0;
+             int count = 0;
+     
+             //Average over Nearby Points
+             for (int j = -smoothingWindow; j <= smoothingWindow; j++) { //For each j in the -350 to 350 Smoothing Window of the Graph
+                 int nextIndex = i + j;
+                 if (nextIndex >= 0 && nextIndex < numSaltPoints) {
+                     smoothedX += saltPoints[nextIndex][0]; //Add the Index of the Point to X
+                     smoothedY += saltPoints[nextIndex][1]; //Add the Index of the Point to Y
+                     count++; //Add 1 to Count
+                 }
+             }
+             smoothedX /= count; //Average the x
+             smoothedY /= count; //Average the y
+     
+             /*
+              * Plot the Smoothed Salt Points
+              */
+             plot.fillOval(smoothedX - 3, smoothedY - 3, 6, 6);
+         }
         }
-    }
 }
